@@ -1,0 +1,29 @@
+﻿@page
+@model Acme.ProjectDemo.Web.Pages.IndexModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Acme.ProjectDemo.Localization
+@using Volo.Abp.Users
+@inject IHtmlLocalizer<ProjectDemoResource> L
+@inject ICurrentUser CurrentUser
+@section styles {
+    <abp-style src="/Pages/Index.css" />
+}
+@section scripts {
+    <abp-script src="/Pages/Index.js" />
+}
+
+<div>
+    <div class="container mb-4">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h3>Welcome to project demo</h3>
+                <p>Open the profile page to view your data</p>
+                <small>Note: you must be signed in</small>
+                <br /><br />
+                @if (CurrentUser.IsAuthenticated) { 
+                     <a class="text-success" asp-page="/Customer/CustomerDetails/Index">Open Profie</a>
+                } 
+            </div> 
+        </div>
+    </div> 
+</div>

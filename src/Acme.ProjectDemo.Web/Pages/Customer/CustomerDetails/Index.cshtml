@@ -1,0 +1,96 @@
+﻿@page
+@model Acme.ProjectDemo.Web.Pages.Customer.CustomerDetails.IndexModel
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@{
+}
+
+<div>
+    <div class="container mb-4">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h3>Welcome to profile section</h3>
+                <p>Handle customer data from the form below</p>
+            </div>
+            <div>
+                <img src="/Images/@Model.CustomerDetailModal.ProfilePhoto" width="80" height="80" class="rounded-circle" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-4 ">
+        <form method="post" enctype="multipart/form-data">
+            <abp-input asp-for="CustomerDetailModal.UploadDocuments" type="hidden"/>
+            <abp-input asp-for="CustomerDetailModal.ProfilePhoto" type="hidden"/>
+
+            <div>
+                @* Personal Information Section *@
+                <div class="mb-4">
+                    <h5>Personal Information</h5>
+                    <div class="form-group border border-secondary rounded p-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <abp-input asp-for="CustomerDetailModal.FirstName" />
+                            </div>
+                            <div class="col-md-6">
+                                <abp-input asp-for="CustomerDetailModal.LastName" />
+                            </div>
+                            <div class="col-md-6">
+                                <abp-input asp-for="CustomerDetailModal.DateOfBirth" />
+                            </div>
+                            <div class="col-md-6">
+                                <abp-input asp-for="CustomerDetailModal.Address" />
+                            </div>
+                            <div class="col-md-6">
+                                <abp-input asp-for="CustomerDetailModal.PhoneNumber" />
+                            </div>
+                            <div class="col-md-6">
+                                <abp-input asp-for="CustomerDetailModal.UserEmail" />
+                            </div>
+                            <div class="col-md-12">
+                                <abp-input asp-for="CustomerDetailModal.ProfilePhotoFile" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @* Professional Information Section *@
+                <div class="mb-4">
+                    <h5>Professional Information</h5>
+
+                    <div class="form-group border border-secondary rounded p-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <abp-select asp-for="CustomerDetailModal.EducationalLevel" />
+                            </div>
+                            <div class="col-md-6">
+                                <abp-input asp-for="CustomerDetailModal.Job" />
+                            </div>
+                            <div class="col-md-6">
+                                <abp-input asp-for="CustomerDetailModal.BankDetails" />
+                            </div>
+                            <div class="col-md-6">
+                                <abp-input asp-for="CustomerDetailModal.ShippingAddress" />
+                            </div>
+                            <div class="col-md-6">
+                                <abp-input asp-for="CustomerDetailModal.DocumentFile" />
+                            </div>
+                            <div class="col-md-6">
+                                <label>Uploaded Document</label><br />
+                                <a class="form-control btn bg-secondary text-white" href="/Documents/@Model.CustomerDetailModal.UploadDocuments">click here to open file</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <abp-button button-type="Primary" type="submit" class="w-100">Upload</abp-button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+

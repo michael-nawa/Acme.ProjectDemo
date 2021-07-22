@@ -1,0 +1,15 @@
+{
+  "culture": "en",
+  "texts": {
+    "Menu:Home": "Home",
+    "Welcome": "Welcome",
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+
+    "Permission:CustomerDetailsStore": "CustomerDetails Store",
+    "Permission:CustomerDetails": "CustomerDetails Management",
+    "Permission:CustomerDetails.Create": "Creating new CustomerDetails",
+    "Permission:CustomerDetails.Edit": "Editing the CustomerDetails",
+    "Permission:CustomerDetails.Delete": "Deleting the CustomerDetails",
+    "Permission:CustomerDetails.Admin": "Admin Functions"
+  }
+}

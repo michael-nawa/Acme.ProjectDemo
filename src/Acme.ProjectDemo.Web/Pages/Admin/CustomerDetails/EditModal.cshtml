@@ -1,0 +1,20 @@
+﻿@page
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@using Acme.ProjectDemo.Web.Pages.Admin.CustomerDetails
+@using Microsoft.Extensions.Localization
+
+@model EditModalModel
+@{
+    Layout = null;
+}
+
+<abp-dynamic-form abp-model="CustomerDetailModal" asp-page="/Admin/CustomerDetails/EditModal">
+    <abp-modal>
+        <abp-modal-header title="Edit Customers"></abp-modal-header>
+        <abp-modal-body>
+            <abp-input asp-for="id" />
+            <abp-form-content />
+        </abp-modal-body>
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</abp-dynamic-form>

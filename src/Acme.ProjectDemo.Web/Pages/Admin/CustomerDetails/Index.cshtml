@@ -1,0 +1,42 @@
+﻿@page
+@using Acme.ProjectDemo.Permissions
+@using Microsoft.AspNetCore.Authorization
+@using Acme.ProjectDemo.Localization
+@model Acme.ProjectDemo.Web.Pages.Admin.CustomerDetails.IndexModel
+@inject IAuthorizationService AuthorizationService
+@section scripts
+{
+    <abp-script src="/Pages/Admin/CustomerDetails/Index.js" />
+}
+
+<div>
+    <div class="container mb-4">
+        <h3>Welcome to customer handler</h3>
+        <p>Handle customer data from the form below</p>
+    </div>
+
+    <div class="container mb-4">
+        <abp-card>
+            <abp-card-header>
+                <abp-row>
+                    <abp-column size-md="_6">
+                        <abp-card-title>Current Customers</abp-card-title>
+                    </abp-column>
+                    <abp-column size-md="_6" class="text-right">
+                        @if (await AuthorizationService.IsGrantedAsync(ProjectDemoPermissions.CustomerDetail.Create))
+                        {
+                            <abp-button id="createCustomerBtn"
+                                        text="Add Customer"
+                                        icon="plus"
+                                        button-type="Primary" />
+                        }
+                    </abp-column>
+                </abp-row>
+            </abp-card-header>
+            <abp-card-body>
+                <abp-table striped-rows="true" id="dataTable"></abp-table>
+            </abp-card-body>
+        </abp-card>
+    </div>
+</div>
+
